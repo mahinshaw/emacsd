@@ -20,6 +20,10 @@
 ;; Make backup files all the time, even when in versioning
 (setq vc-make-backup-files t)
 
+;; Here are some customizations that could be moved later
+;; add line numbers, because i like to count.
+(global-linum-mode t)
+
 ;; Add the config folder to the emacs dir.
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 
@@ -39,5 +43,3 @@
 
 ;;(load "~/.emacs.d/init-evil-mode.el")
 
-;; line numbers?
-(linum-mode 1)
