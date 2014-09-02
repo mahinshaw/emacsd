@@ -29,6 +29,10 @@
 ;; Make backup files all the time, even when in versioning
 (setq vc-make-backup-files t)
 
+;; Am I using a mac?
+(setq is-mac (equal system-type 'darwin))
+
+
 ;; Here are some customizations that could be moved later
 ;; -------------------------------------------
 ;; add line numbers, because i like to count.
@@ -44,6 +48,23 @@
 ;; import modules.
 (require 'cl)
 (require 'init-packages)
+
+;; If so, set PATH variables with exec-path-from-shell
+(when is-mac
+  (require-package 'exec-path-from-shell)
+  (require 'exec-path-from-shell)
+  (exec-path-from-shell-initialize))
+
+;; Mac specific
+(when is-mac
+  (require 'mac))
+
+;; auto-complete - can move to its own file
+;;(require-package 'auto-complete)
+;;(require 'auto-complete)
+;;(require 'auto-complete-config)
+
+(setq ac-comphist-file (concat emacsd-cache-directory "ac-comphidt.dat"))
 
 ;; color theme - must come after the packages are loaded!
 (load-theme 'flatland t)
