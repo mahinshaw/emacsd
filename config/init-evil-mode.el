@@ -31,6 +31,9 @@
 
 ;; the following are required before evil-mode is set
 ;; evil-leader
+;; This line makes sure the leader is usable in all Modes
+(setq evil-leader/in-all-states 1)
+
 (global-evil-leader-mode t)
 (evil-leader/set-leader ",")
 (evil-leader/set-key

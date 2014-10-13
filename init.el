@@ -67,11 +67,12 @@
 (setq ac-comphist-file (concat emacsd-cache-directory "ac-comphidt.dat"))
 
 ;; color theme - must come after the packages are loaded!
-(load-theme 'flatland t)
+(load-theme 'misterioso t)
 
 ;; Define modules to import
 (defcustom emacsd-modules
   '(init-evil-mode
+    init-helm
     )
   "Set of my enabled modules"
   :group 'emacsd)
