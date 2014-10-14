@@ -86,7 +86,7 @@
   "Set of my enabled modules"
   :group 'emacsd)
 
-;; requall the modules in the above list.
+;; require all the modules in the above list.
 (dolist (module emacsd-modules)
   (require module))
 
