@@ -69,10 +69,19 @@
 ;; color theme - must come after the packages are loaded!
 (load-theme 'misterioso t)
 
+;; elisp slime nav mode
+(require 'elisp-slime-nav)
+(defun my-lisp-hook ()
+  (elisp-slime-nav-mode)
+  (eldoc-mode))
+
+(add-hook 'emacs-lisp-mode-hook 'my-lisp-hook)
+
 ;; Define modules to import
 (defcustom emacsd-modules
-  '(init-evil-mode
+  '(
     init-helm
+    init-evil-mode
     )
   "Set of my enabled modules"
   :group 'emacsd)
