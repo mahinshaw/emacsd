@@ -17,7 +17,8 @@
 ;; to get rid of the splash screen uncomment the following
 (setq inhibit-startup-message t)
 
-;; Turns out that Custom adds junk to the init.  Lets get rid of that by putting it in a file called custom.el
+;; Turns out that Custom adds junk to the init.
+;; Lets get rid of that by putting it in a file called custom.el
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
@@ -80,6 +81,7 @@
 ;; Define modules to import
 (defcustom emacsd-modules
   '(
+    better-defaults
     init-helm
     init-evil-mode
     )
