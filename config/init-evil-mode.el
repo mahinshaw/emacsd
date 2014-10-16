@@ -42,6 +42,7 @@
  "e" 'switch-to-buffer
  "d" 'dired
  "gs" 'magit-status
+ "x" 'execute-extended-command
  )
 
 ;; evil-surround
