@@ -33,6 +33,9 @@
 ;; Am I using a mac?
 (setq is-mac (equal system-type 'darwin))
 
+;; Am I using Window? (only because I have to at work.
+(setq is-windows (equal system-type 'windows-nt))
+
 
 ;; Here are some customizations that could be moved later
 ;; -------------------------------------------
@@ -59,6 +62,10 @@
 ;; Mac specific
 (when is-mac
   (require 'mac))
+
+;; Windows specific
+(when is-windows
+  (require 'windows))
 
 ;; auto-complete - can move to its own file
 ;;(require-package 'auto-complete)
