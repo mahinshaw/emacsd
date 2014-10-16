@@ -43,35 +43,46 @@
 
 ;;;###autoload
 (progn
-  (ido-mode t)
-  (setq ido-enable-flex-matching t)
+  ;; Moved to init-ido.el
+  ;;(ido-mode t)
+  ;;(setq ido-enable-flex-matching t)
 
-  (menu-bar-mode -1)
-  (when (fboundp 'tool-bar-mode)
-    (tool-bar-mode -1))
-  (when (fboundp 'scroll-bar-mode)
-    (scroll-bar-mode -1))
+  ;; already being used in init.el
+  ;;(menu-bar-mode -1)
+  ;;(when (fboundp 'tool-bar-mode)
+    ;;(tool-bar-mode -1))
+  ;;(when (fboundp 'scroll-bar-mode)
+    ;;(scroll-bar-mode -1))
 
   (autoload 'zap-up-to-char "misc"
     "Kill up to, but not including ARGth occurrence of CHAR." t)
 
+  ;; Uniquify lets the buffer use the directory.  Forward says use forwared slashes.
   (require 'uniquify)
   (setq uniquify-buffer-name-style 'forward)
 
+  ;; Saves the last place in the buffer.
   (require 'saveplace)
   (setq-default save-place t)
-
+  ;; Autocomplete in place; Expand completion options in place.
   (global-set-key (kbd "M-/") 'hippie-expand)
+  ;; Remap new window buffer to use ibuffer.
   (global-set-key (kbd "C-x C-b") 'ibuffer)
+  ;; kills up to but not including the character passed as a param.  (like dt{char} in vim)
   (global-set-key (kbd "M-z") 'zap-up-to-char)
 
+  ;; use regex for incremental search by default.
   (global-set-key (kbd "C-s") 'isearch-forward-regexp)
   (global-set-key (kbd "C-r") 'isearch-backward-regexp)
+  ;; Remap incremental search in case you actually want that.
   (global-set-key (kbd "C-M-s") 'isearch-forward)
   (global-set-key (kbd "C-M-r") 'isearch-backward)
 
+  ;; show matching parens please!
   (show-paren-mode 1)
+  ;; setting indent-tabs-mode to nil means indent with spaces.
   (setq-default indent-tabs-mode nil)
+
   (setq x-select-enable-clipboard t
         x-select-enable-primary t
         save-interprogram-paste-before-kill t
@@ -80,9 +91,10 @@
         require-final-newline t
         visible-bell t
         ediff-window-setup-function 'ediff-setup-windows-plain
-        save-place-file (concat user-emacs-directory "places")
-        backup-directory-alist `(("." . ,(concat user-emacs-directory
-                                                 "backups")))))
+        ))
+;; duplicate functions that were removed from the above block.
+        ;;backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")
+        ;;save-place-file (concat user-emacs-directory "places")
 
 (provide 'better-defaults)
 ;;; better-defaults.el ends here

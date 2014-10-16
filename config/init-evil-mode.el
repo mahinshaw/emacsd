@@ -39,7 +39,10 @@
 (evil-leader/set-key
  "h" help-map
  "f" 'find-file
- "b" 'switch-to-buffer)
+ "e" 'switch-to-buffer
+ "d" 'dired
+ "gs" 'magit-status
+ )
 
 ;; evil-surround
 (global-evil-surround-mode t)
@@ -50,7 +53,7 @@
 ;; the (kbd arg) allows bingind from keyboard with control, meta, and shift operators.
 
 ;; press ; in normal mode to got straight to command execution.
-(define-key evil-normal-state-map ";" 'evil-ex)
+;; (define-key evil-normal-state-map ";" 'evil-ex)
 (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)

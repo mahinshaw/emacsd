@@ -22,6 +22,12 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
+;; use saveplave package
+(require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file
+      (concat emacsd-cache-directory "places"))
+
 ;; set up the backups to go to their own directory
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
@@ -89,7 +95,9 @@
 (defcustom emacsd-modules
   '(
     better-defaults
-    init-helm
+    init-ido
+    ;; init-helm Use Ido for now, since I am a noob
+    init-magit
     init-evil-mode
     )
   "Set of my enabled modules"
