@@ -1,6 +1,7 @@
 ;; Ido mode settings.
 ;; Some nuggets at http://www.masteringemacs.org/article/introduction-to-ido-mode
 (progn
+  (require-package 'ido-ubiquitous)
   ;; Fuzzy finder
   (setq ido-enable-flex-matching t)
 
@@ -19,6 +20,10 @@
 
   ;; Turn on ido-mode
   (ido-mode t)
+
+  ;; Really use ido everywhere.
+  (require 'ido-ubiquitous)
+  (setq ido-ubiquitous-mode 1)
 
   ;; Use smex - It's here because it is attached to Ido
   (require-package 'smex)

@@ -97,6 +97,8 @@
     better-defaults
     init-ido
     ;; init-helm Use Ido for now, since I am a noob
+    init-clojure
+    init-csharp
     init-magit
     init-evil-mode
     )
