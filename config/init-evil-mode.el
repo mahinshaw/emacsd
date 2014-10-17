@@ -19,6 +19,9 @@
 (setq evil-operator-state-cursor '("yellow" box))
 (setq evil-motion-state-cursor '("yellow" box))
 
+;; C-u to scroll please
+(setq evil-want-C-u-scroll t)
+
 ;; require the package.
 (require-package 'evil)
 (require-package 'evil-leader)
