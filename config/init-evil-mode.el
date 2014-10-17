@@ -45,7 +45,8 @@
  "e" 'switch-to-buffer
  "d" 'dired
  "gs" 'magit-status
- "x" 'execute-extended-command
+ "x" 'smex
+ "X" 'smex-major-mode-commands
  )
 
 ;; evil-surround
@@ -77,6 +78,7 @@
 (key-chord-mode 1)
 
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+(key-chord-define evil-visual-state-map "jk" 'evil-normal-state)
 (key-chord-define evil-normal-state-map "vv" 'split-window-horizontally)
 (key-chord-define evil-normal-state-map "ss" 'split-window-vertically)
 

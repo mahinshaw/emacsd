@@ -16,8 +16,15 @@
   ;; Setting to true means that case is ignored.
   ;;(setq ido-case-fold t)
 
+
   ;; Turn on ido-mode
   (ido-mode t)
+
+  ;; Use smex - It's here because it is attached to Ido
+  (require-package 'smex)
+  (require 'smex)
+  (global-set-key (kbd "M-x") 'smex)
+  (global-set-key (kbd "M-X") 'smex-major-mode-command)
   )
 
 (provide 'init-ido)
