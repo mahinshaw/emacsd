@@ -11,8 +11,9 @@
 (require-package 'omnisharp)
 (require 'omnisharp)
 
-(setq omnisharp--curl-executable-path "C:/Program Files (x86)/Git/bin/curl.exe")
-(setq omnisharp-server-executable-path "C:/Users/Mark/workspace/omnisharpserver/OmniSharp/bin/Debug/OmniSharp.exe")
+(if is-windows
+    (setq omnisharp--curl-executable-path "C:/Program Files (x86)/Git/bin/curl.exe"
+          omnisharp-server-executable-path "C:/Users/Mark/workspace/omnisharpserver/OmniSharp/bin/Debug/OmniSharp.exe"))
 
 (require 'company)
 (setq company-mode 1)

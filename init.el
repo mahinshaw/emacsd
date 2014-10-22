@@ -19,8 +19,9 @@
 
 ;; Turns out that Custom adds junk to the init.
 ;; Lets get rid of that by putting it in a file called custom.el
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file)
+(when (file-readable-p (expand-file-name "custom.el" user-emacs-directory))
+      (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+      (load custom-file))
 
 ;; use saveplave package
 (require 'saveplace)
@@ -35,13 +36,6 @@
 
 ;; Make backup files all the time, even when in versioning
 (setq vc-make-backup-files t)
-
-;; Am I using a mac?
-(setq is-mac (equal system-type 'darwin))
-
-;; Am I using Window? (only because I have to at work.
-(setq is-windows (equal system-type 'windows-nt))
-
 
 ;; Here are some customizations that could be moved later
 ;; -------------------------------------------
@@ -58,6 +52,7 @@
 ;; import modules.
 (require 'cl)
 (require 'init-packages)
+(require 'init-utils)
 
 ;; If so, set PATH variables with exec-path-from-shell
 (when is-mac
@@ -100,6 +95,7 @@
     init-clojure
     init-csharp
     init-magit
+    init-projectile
     init-evil-mode
     )
   "Set of my enabled modules"

@@ -2,10 +2,17 @@
 ;; Some nuggets at http://www.masteringemacs.org/article/introduction-to-ido-mode
 (progn
   (require-package 'ido-ubiquitous)
+  (require-package 'flx-ido)
+  (require 'flx-ido)
+  ;; Turn on ido-mode
+  (ido-mode t)
+  (setq ido-everywhere t)
+  ;; turn on ido-flx
+  (flx-ido-mode 1)
+
   ;; Fuzzy finder
   (setq ido-enable-flex-matching t)
-
-  (setq ido-everywhere t)
+  (setq ido-use-faces nil)
   ;; AutoCompletions for C-x C-f (kinda cool, kinda jarring).
   (setq ido-use-filename-at-point 'guess)
   ;; Create new buffers by default when a buffer of that name does not exist.
@@ -16,10 +23,6 @@
 
   ;; Setting to true means that case is ignored.
   ;;(setq ido-case-fold t)
-
-
-  ;; Turn on ido-mode
-  (ido-mode t)
 
   ;; Really use ido everywhere.
   (require 'ido-ubiquitous)
