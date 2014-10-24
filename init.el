@@ -95,6 +95,7 @@
     init-clojure
     init-csharp
     init-magit
+    init-smartparens
     init-projectile
     init-evil-mode
     )
