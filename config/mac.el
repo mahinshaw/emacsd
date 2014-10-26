@@ -6,6 +6,6 @@
 (setq ns-use-native-fullscreen nil)
 
 ;; start in fullscreen
-(toggle-frame-fullscreen)
+;;(toggle-frame-fullscreen)
 
 (provide 'mac)

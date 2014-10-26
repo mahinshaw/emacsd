@@ -1,6 +1,6 @@
 ;; Settings related to evil mode.
 
-;; undo-tree is required for better undo.  for
+;; undo-tree is required for better undo.  for;
 ;; For now it can stay with evil
 (require-package 'undo-tree)
 (setq undo-tree-auto-save-history t)
@@ -64,12 +64,36 @@
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
 (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 
-;; this will lookup what is under the cursor
-(evil-define-key 'normal emacs-lisp-mode-map (kbd "K")
-  'elisp-slime-nav-describe-elisp-thing-at-point)
+;; Elisp
+(evil-define-key 'normal emacs-lisp-mode-map
+  (kbd "g d") 'elisp-slime-nav-find-elisp-thing-at-point
+  (kbd "K")   'elisp-slime-nav-describe-elisp-thing-at-point
+  (kbd "<return>") 'eval-defun
+  (kbd "g X") 'eval-buffer)
+(evil-define-key 'visual emacs-lisp-mode-map
+  (kbd "<return>") 'eval-region)
 
-;; evil-define-key allows single key rebindings
-;; (evil-define-key evil-normal-state-map "
+;; Clojure mappings.
+(evil-define-key 'normal clojure-mode-map
+  (kbd "g d") 'cider-jump
+  (kbd "K") 'cider-doc
+  (kbd "g K") 'cider-javadoc
+  ;;Evaluate the current toplevel form. PREFIX => print in buffer.
+  (kbd "<return>") 'cider-eval-defun-at-point
+  (kbd "g X") 'cider-eval-buffer)
+(evil-define-key 'visual clojure-mode-map
+  (kbd "<return>") 'cider-eval-region)
+(evil-define-key 'normal cider-repl-mode-map (kbd "g K") 'cider-javadoc)
+(evil-define-key 'normal cider-mode-map (kbd "g K") 'cider-javadoc)
+
+(evil-add-hjkl-bindings magit-status-mode-map 'emacs
+  "l" 'magit-key-mode-popup-logging)
+(evil-define-key 'normal magit-status-mode-map
+  (kbd "[ c") 'magit-goto-previous-section
+  (kbd "] c") 'magit-goto-next-section)
+(evil-define-key 'normal diff-mode-map
+  (kbd "[ c") 'diff-hunk-prev
+  (kbd "] c") 'diff-hunk-next)
 
 ;; Key-chord mappings for evil - key-chord allows 2 key presses.
 ;; this requires fast typing
