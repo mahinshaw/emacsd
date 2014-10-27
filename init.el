@@ -43,7 +43,7 @@
 (global-linum-mode t)
 ;; auto-indent
 (electric-indent-mode t)
-
+(set-default-font "Source Code Pro Bold")
 ;; -------------------------------------------
 
 ;; Add the config folder to the emacs dir.
@@ -92,6 +92,8 @@
     better-defaults
     init-ido
     ;; init-helm Use Ido for now, since I am a noob
+    init-company
+    init-flycheck
     init-clojure
     init-csharp
     init-magit
