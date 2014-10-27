@@ -42,6 +42,7 @@
 (evil-leader/set-key
  "h" help-map
  "f" 'find-file
+ "b" 'ibuffer
  "e" 'switch-to-buffer
  "d" 'dired
  "gs" 'magit-status
