@@ -26,7 +26,7 @@
 ;; hook in on startup
 (add-hook 'window-setup-hook 'maximize-frame t)
 
-(after 'projectile
-       (setq projectile-indexing-method 'alien))
+;;(eval-after-load 'projectile
+;;       (setq projectile-indexing-method alien))
 
 (provide 'windows)

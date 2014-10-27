@@ -42,6 +42,7 @@
 (evil-leader/set-key
  "h" help-map
  "f" 'find-file
+ "b" 'ibuffer
  "e" 'switch-to-buffer
  "d" 'dired
  "gs" 'magit-status
@@ -65,35 +66,42 @@
 (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 
 ;; Elisp
-(evil-define-key 'normal emacs-lisp-mode-map
-  (kbd "g d") 'elisp-slime-nav-find-elisp-thing-at-point
-  (kbd "K")   'elisp-slime-nav-describe-elisp-thing-at-point
-  (kbd "<return>") 'eval-defun
-  (kbd "g X") 'eval-buffer)
-(evil-define-key 'visual emacs-lisp-mode-map
-  (kbd "<return>") 'eval-region)
+(eval-after-load 'elisp-slime-nav
+  '(progn
+    (evil-define-key 'normal emacs-lisp-mode-map
+      (kbd "g s") 'elisp-slime-nav-find-elisp-thing-at-point
+      (kbd "K")   'elisp-slime-nav-describe-elisp-thing-at-point
+      (kbd "<return>") 'eval-defun
+      (kbd "g X") 'eval-buffer)
+    (evil-define-key 'visual emacs-lisp-mode-map
+      (kbd "<return>") 'eval-region)))
 
 ;; Clojure mappings.
-(evil-define-key 'normal clojure-mode-map
-  (kbd "g d") 'cider-jump
-  (kbd "K") 'cider-doc
-  (kbd "g K") 'cider-javadoc
-  ;;Evaluate the current toplevel form. PREFIX => print in buffer.
-  (kbd "<return>") 'cider-eval-defun-at-point
-  (kbd "g X") 'cider-eval-buffer)
-(evil-define-key 'visual clojure-mode-map
-  (kbd "<return>") 'cider-eval-region)
-(evil-define-key 'normal cider-repl-mode-map (kbd "g K") 'cider-javadoc)
-(evil-define-key 'normal cider-mode-map (kbd "g K") 'cider-javadoc)
+(eval-after-load 'cider
+  '(progn
+    (evil-define-key 'normal clojure-mode-map
+      (kbd "g s") 'cider-jump
+      (kbd "K") 'cider-doc
+      (kbd "g K") 'cider-javadoc
+      ;;Evaluate the current toplevel form. PREFIX => print in buffer.
+      (kbd "<return>") 'cider-eval-defun-at-point
+      (kbd "g X") 'cider-eval-buffer)
+    (evil-define-key 'visual clojure-mode-map
+      (kbd "<return>") 'cider-eval-region)
+    (evil-define-key 'normal cider-repl-mode-map (kbd "g K") 'cider-javadoc)
+    (evil-define-key 'normal cider-mode-map (kbd "g K") 'cider-javadoc)))
 
-(evil-add-hjkl-bindings magit-status-mode-map 'emacs
-  "l" 'magit-key-mode-popup-logging)
-(evil-define-key 'normal magit-status-mode-map
-  (kbd "[ c") 'magit-goto-previous-section
-  (kbd "] c") 'magit-goto-next-section)
-(evil-define-key 'normal diff-mode-map
-  (kbd "[ c") 'diff-hunk-prev
-  (kbd "] c") 'diff-hunk-next)
+;; Magit mappings.
+(eval-after-load 'magit
+  '(progn
+    (evil-add-hjkl-bindings magit-status-mode-map 'emacs
+      "l" 'magit-key-mode-popup-logging)
+    (evil-define-key 'normal magit-status-mode-map
+      (kbd "[ c") 'magit-goto-previous-section
+      (kbd "] c") 'magit-goto-next-section)
+    (evil-define-key 'normal diff-mode-map
+      (kbd "[ c") 'diff-hunk-prev
+      (kbd "] c") 'diff-hunk-next)))
 
 ;; Key-chord mappings for evil - key-chord allows 2 key presses.
 ;; this requires fast typing
