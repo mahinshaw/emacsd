@@ -1,6 +1,7 @@
 .cache/
 .cache*
 \#*
+flycheck*
 custom.el
 backups
 elpa

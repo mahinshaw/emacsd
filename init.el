@@ -1,4 +1,9 @@
-;; Define a group for these files
+;;; init.el --- Define a group for these files
+
+;;; Commentary:
+;;; Learning me some emacs.d
+
+;;; Code:
 (defgroup emacsd nil
   "Configs for my emacs"
   :group 'local)
@@ -20,8 +25,8 @@
 ;; Turns out that Custom adds junk to the init.
 ;; Lets get rid of that by putting it in a file called custom.el
 (when (file-readable-p (expand-file-name "custom.el" user-emacs-directory))
-      (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-      (load custom-file))
+  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+  (load custom-file))
 
 ;; use saveplave package
 (require 'saveplace)
@@ -32,7 +37,7 @@
 ;; set up the backups to go to their own directory
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
-     (concat emacsd-cache-directory "backups")))))
+                 (concat emacsd-cache-directory "backups")))))
 
 ;; Make backup files all the time, even when in versioning
 (setq vc-make-backup-files t)
@@ -43,7 +48,7 @@
 (global-linum-mode t)
 ;; auto-indent
 (electric-indent-mode t)
-(set-frame-font "Source Code Pro 13")
+
 ;;(set-face-attribute 'default nil :height 130)
 ;; -------------------------------------------
 
@@ -82,6 +87,7 @@
 ;; elisp slime nav mode
 (require 'elisp-slime-nav)
 (defun my-lisp-hook ()
+  "Start up eldoc in elisp-slime-nav-mode."
   (elisp-slime-nav-mode)
   (eldoc-mode))
 
@@ -89,20 +95,19 @@
 
 ;; Define modules to import
 (defcustom emacsd-modules
-  '(
-    better-defaults
+  '(better-defaults
     init-ido
     ;; init-helm Use Ido for now, since I am a noob
     init-company
     init-flycheck
+    init-org
     init-clojure
     init-csharp
     init-magit
     init-smartparens
     init-projectile
-    init-evil-mode
-    )
-  "Set of my enabled modules"
+    init-evil-mode)
+  "Set of my enabled modules."
   :group 'emacsd)
 
 ;; require all the modules in the above list.

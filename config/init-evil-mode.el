@@ -18,7 +18,7 @@
 (global-undo-tree-mode)
 
 ;; Customize the cursor based on the state.
-(setq evil-emacs-state-cursor '("red" box))
+(setq evil-emacs-state-cursor '("red" bar))
 (setq evil-normal-state-cursor '("green" box))
 (setq evil-insert-state-cursor '("yellow" bar))
 (setq evil-replace-state-cursor '("yellow" box))
@@ -105,6 +105,14 @@
     (evil-define-key 'normal magit-status-mode-map
       (kbd "[ c") 'magit-goto-previous-section
       (kbd "] c") 'magit-goto-next-section)
+    (evil-define-key 'emacs magit-log-mode-map
+      "j" 'magit-goto-next-section
+      "k" 'magit-goto-previous-section)
+    (evil-define-key 'emacs magit-diff-mode-map
+      "j" 'magit-goto-next-section
+      "k" 'magit-goto-previous-section
+      (kbd "[ c") 'diff-hunk-prev
+      (kbd "] c") 'diff-hunk-next)
     (evil-define-key 'normal diff-mode-map
       (kbd "[ c") 'diff-hunk-prev
       (kbd "] c") 'diff-hunk-next))

@@ -3,6 +3,7 @@
 ;; Add git bash dir to the runtime path
 (add-to-list 'exec-path "C:/Program Files (x86)/Git/bin")
 
+(set-face-font 'default "Source Code Pro 11")
 ;; settings to default to the git-bash shell
 ;;(setq shell-file-name "C:/Program Files (x86)/Git/bin/sh")
 ;;(setq explicit-shell-file-name shell-file-name)
