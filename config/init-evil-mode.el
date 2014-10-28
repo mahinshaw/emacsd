@@ -107,7 +107,7 @@
       (kbd "] c") 'magit-goto-next-section)
     (evil-define-key 'normal diff-mode-map
       (kbd "[ c") 'diff-hunk-prev
-      (kbd "] c") 'diff-hunk-next)))
+      (kbd "] c") 'diff-hunk-next))
 
 ;; Hijack the ibuffer for evil normal state
 (after 'ibuffer
