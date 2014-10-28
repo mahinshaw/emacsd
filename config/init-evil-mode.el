@@ -1,9 +1,14 @@
 ;;; package --- summary
 ;;; Commentary:
+
+;; some help found @
+;; http://nathantypanski.com/blog/2014-08-03-a-vim-like-emacs-config.html#dired
+
 ;;Settings related to evil mode.
 
 ;; undo-tree is required for better undo.  for;
 ;; For now it can stay with evil
+;;; Code:
 (require-package 'undo-tree)
 (require 'undo-tree)
 (setq undo-tree-auto-save-history t)
@@ -12,7 +17,6 @@
 
 (global-undo-tree-mode)
 
-;; Settings for evil-mode before loading as per docs
 ;; Customize the cursor based on the state.
 (setq evil-emacs-state-cursor '("red" box))
 (setq evil-normal-state-cursor '("green" box))
@@ -51,6 +55,8 @@
  "gs" 'magit-status
  "x" 'smex
  "X" 'smex-major-mode-commands
+ "q" 'kill-buffer-and-window
+ "," 'other-window
  )
 
 ;; evil-surround
@@ -262,6 +268,21 @@
       (kbd "C-x 4 RET") 'ibuffer-visit-buffer-other-window
       (kbd "C-x 5 RET") 'ibuffer-visit-buffer-other-frame)))
 
+;; Hijack Dired
+(eval-after-load 'dired
+  '(progn
+     (put 'dired-find-alternate-file 'disabled nil)
+     (evil-define-key 'normal dired-mode-map "h" 'dired-up-directory)
+     (evil-define-key 'normal dired-mode-map "l" 'dired-find-alternate-file)
+     (evil-define-key 'normal dired-mode-map "n" 'evil-search-next)
+     (evil-define-key 'normal dired-mode-map "N" 'evil-search-previous)
+     ;; open a dired buffer here and go up up up, like vim-vinegar
+     (evil-define-key 'normal dired-mode-map "-" 'dired-up-directory)
+     (define-key evil-normal-state-map "-"
+       (lambda ()
+         (interactive)
+         (dired ".")))))
+
 ;; Key-chord mappings for evil - key-chord allows 2 key presses.
 ;; this requires fast typing
 (require-package 'key-chord)
@@ -279,4 +300,4 @@
   (evil-set-initial-state `,(car mode-map) `,(cdr mode-map)))
 
 (provide 'init-evil-mode)
-;;; init-evil-mode.el ends here.
+;;; init-evil-mode.el ends here

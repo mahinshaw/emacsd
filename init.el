@@ -4,7 +4,7 @@
   :group 'local)
 
 ;; Set up a custom caching directory for the local machine
-(defcustom emacsd-cache-directory (concat user-emacs-directory ".cache")
+(defcustom emacsd-cache-directory (concat user-emacs-directory ".cache/")
   "This is a storage location for backups and other persistent files."
   :group 'emacsd)
 
@@ -43,7 +43,8 @@
 (global-linum-mode t)
 ;; auto-indent
 (electric-indent-mode t)
-(set-default-font "Source Code Pro Bold")
+(set-frame-font "Source Code Pro 13")
+;;(set-face-attribute 'default nil :height 130)
 ;; -------------------------------------------
 
 ;; Add the config folder to the emacs dir.
@@ -107,4 +108,4 @@
 ;; require all the modules in the above list.
 (dolist (module emacsd-modules)
   (require module))
-
+;;; init.el ends here
