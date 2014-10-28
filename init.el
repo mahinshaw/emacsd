@@ -82,7 +82,7 @@
 (setq ac-comphist-file (concat emacsd-cache-directory "ac-comphidt.dat"))
 
 ;; color theme - must come after the packages are loaded!
-(load-theme 'misterioso t)
+(load-theme 'flatland t)
 
 ;; elisp slime nav mode
 (require 'elisp-slime-nav)

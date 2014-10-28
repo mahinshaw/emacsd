@@ -43,7 +43,7 @@
 ;; evil-leader
 ;; This line makes sure the leader is usable in all Modes
 (setq evil-leader/in-all-states 1)
-
+;; Leader bindings
 (global-evil-leader-mode t)
 (evil-leader/set-leader ",")
 (evil-leader/set-key
@@ -66,14 +66,15 @@
 
 ;; key definitions
 ;; the (kbd arg) allows bingind from keyboard with control, meta, and shift operators.
-
-;; press ; in normal mode to got straight to command execution.
-;; (define-key evil-normal-state-map ";" 'evil-ex)
 (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
 (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
-
+;; I needs me arrows
+(define-key evil-insert-state-map (kbd "C-l") "=> ")
+(define-key evil-insert-state-map (kbd "C-k") "-> ")
+(define-key evil-insert-state-map (kbd "C-j") "->> ")
+(define-key evil-insert-state-map (kbd "C-h") "<- ")
 ;; Elisp
 (after 'elisp-slime-nav
     (evil-define-key 'normal emacs-lisp-mode-map
