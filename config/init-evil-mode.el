@@ -75,19 +75,17 @@
 (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 
 ;; Elisp
-(eval-after-load 'elisp-slime-nav
-  '(progn
+(after 'elisp-slime-nav
     (evil-define-key 'normal emacs-lisp-mode-map
       (kbd "g s") 'elisp-slime-nav-find-elisp-thing-at-point
       (kbd "K")   'elisp-slime-nav-describe-elisp-thing-at-point
       (kbd "<return>") 'eval-defun
       (kbd "g X") 'eval-buffer)
     (evil-define-key 'visual emacs-lisp-mode-map
-      (kbd "<return>") 'eval-region)))
+      (kbd "<return>") 'eval-region))
 
 ;; Clojure mappings.
-(eval-after-load 'cider
-  '(progn
+(after 'cider
     (evil-define-key 'normal clojure-mode-map
       (kbd "g s") 'cider-jump
       (kbd "K") 'cider-doc
@@ -98,11 +96,10 @@
     (evil-define-key 'visual clojure-mode-map
       (kbd "<return>") 'cider-eval-region)
     (evil-define-key 'normal cider-repl-mode-map (kbd "g K") 'cider-javadoc)
-    (evil-define-key 'normal cider-mode-map (kbd "g K") 'cider-javadoc)))
+    (evil-define-key 'normal cider-mode-map (kbd "g K") 'cider-javadoc))
 
 ;; Magit mappings.
-(eval-after-load 'magit
-  '(progn
+(after 'magit
     (evil-add-hjkl-bindings magit-status-mode-map 'emacs
       "l" 'magit-key-mode-popup-logging)
     (evil-define-key 'normal magit-status-mode-map
@@ -113,8 +110,7 @@
       (kbd "] c") 'diff-hunk-next)))
 
 ;; Hijack the ibuffer for evil normal state
-(eval-after-load 'ibuffer
-  '(progn
+(after 'ibuffer
     (evil-set-initial-state 'ibuffer-mode 'normal)
     (evil-define-key 'normal ibuffer-mode-map
       (kbd "0") 'digit-argument
@@ -266,11 +262,10 @@
       (kbd "C-x v") 'ibuffer-do-view-horizontally
       (kbd "C-c C-a") 'ibuffer-auto-mode
       (kbd "C-x 4 RET") 'ibuffer-visit-buffer-other-window
-      (kbd "C-x 5 RET") 'ibuffer-visit-buffer-other-frame)))
+      (kbd "C-x 5 RET") 'ibuffer-visit-buffer-other-frame))
 
 ;; Hijack Dired
-(eval-after-load 'dired
-  '(progn
+(after 'dired
      (put 'dired-find-alternate-file 'disabled nil)
      (evil-define-key 'normal dired-mode-map "h" 'dired-up-directory)
      (evil-define-key 'normal dired-mode-map "l" 'dired-find-alternate-file)
@@ -281,7 +276,7 @@
      (define-key evil-normal-state-map "-"
        (lambda ()
          (interactive)
-         (dired ".")))))
+         (dired "."))))
 
 ;; Key-chord mappings for evil - key-chord allows 2 key presses.
 ;; this requires fast typing
