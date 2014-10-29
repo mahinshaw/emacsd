@@ -1,5 +1,6 @@
-;; This file contains utility functions.
-
+;;; init-utils --- Utility functions.
+;;; Commentary:
+;;; Code:
 ;; Am I using a mac?
 (setq is-mac (equal system-type 'darwin))
 
@@ -22,3 +23,4 @@
        '(progn ,@body))))
     
 (provide 'init-utils)
+;;; init-utils ends here

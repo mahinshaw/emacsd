@@ -81,7 +81,8 @@
       (kbd "g s") 'elisp-slime-nav-find-elisp-thing-at-point
       (kbd "K")   'elisp-slime-nav-describe-elisp-thing-at-point
       (kbd "<return>") 'eval-defun
-      (kbd "g X") 'eval-buffer)
+      (kbd "g X") 'eval-buffer
+      (kbd "g x") 'eval-last-sexp)
     (evil-define-key 'visual emacs-lisp-mode-map
       (kbd "<return>") 'eval-region))
 
@@ -93,7 +94,8 @@
       (kbd "g K") 'cider-javadoc
       ;;Evaluate the current toplevel form. PREFIX => print in buffer.
       (kbd "<return>") 'cider-eval-defun-at-point
-      (kbd "g X") 'cider-eval-buffer)
+      (kbd "g X") 'cider-eval-buffer
+      (kbd "g x") 'cider-eval-last-sexp)
     (evil-define-key 'visual clojure-mode-map
       (kbd "<return>") 'cider-eval-region)
     (evil-define-key 'normal cider-repl-mode-map (kbd "g K") 'cider-javadoc)

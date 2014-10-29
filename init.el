@@ -57,29 +57,10 @@
 (require 'init-packages)
 (require 'init-utils)
 
-;; Mac specific
-(when is-mac
-  (require 'mac))
-
-;; Windows specific
-(when is-windows
-  (require 'windows))
-
-;; color theme - must come after the packages are loaded!
-(load-theme 'flatland t)
-
-;; elisp slime nav mode
-(require 'elisp-slime-nav)
-(defun my-lisp-hook ()
-  "Start up eldoc in elisp-slime-nav-mode."
-  (elisp-slime-nav-mode)
-  (eldoc-mode))
-
-(add-hook 'emacs-lisp-mode-hook 'my-lisp-hook)
-
 ;; Define modules to import
 (defcustom emacsd-modules
   '(better-defaults
+    init-misc
     init-ido
     ;; init-helm Use Ido for now, since I am a noob
     init-company
@@ -97,4 +78,16 @@
 ;; require all the modules in the above list.
 (dolist (module emacsd-modules)
   (require module))
+
+;; Mac specific
+(when is-mac
+  (require 'mac))
+
+;; Windows specific
+(when is-windows
+  (require 'windows))
+
+;; color theme - must come after the packages are loaded!
+(load-theme 'flatland t)
+
 ;;; init.el ends here

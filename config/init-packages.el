@@ -1,3 +1,6 @@
+;;; init-packages.el --- Packages
+;;; Commentary:
+;;; Code:
 (setq package-archives '(
 			 ("melpa" . "http://melpa.milkbox.net/packages/")
  			 ("org" . "http://orgmode.org/elpa/")
@@ -9,7 +12,7 @@
 
 ;; since we set packages
 (defun require-package (package)
-  "Install the passed 'package'."
+  "Install the passed `PACKAGE'."
   (unless (package-installed-p package)
     (unless (assoc package package-archive-contents)
       (package-refresh-contents))
@@ -17,3 +20,4 @@
 
 ;; Make this file reference-able
 (provide 'init-packages)
+;;; init-packages.el ends here
