@@ -49,9 +49,6 @@
 ;; auto-indent
 (electric-indent-mode t)
 
-;;(set-face-attribute 'default nil :height 130)
-;; -------------------------------------------
-
 ;; Add the config folder to the emacs dir.
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 
@@ -60,12 +57,6 @@
 (require 'init-packages)
 (require 'init-utils)
 
-;; If so, set PATH variables with exec-path-from-shell
-(when is-mac
-  (require-package 'exec-path-from-shell)
-  (require 'exec-path-from-shell)
-  (exec-path-from-shell-initialize))
-
 ;; Mac specific
 (when is-mac
   (require 'mac))
@@ -73,13 +64,6 @@
 ;; Windows specific
 (when is-windows
   (require 'windows))
-
-;; auto-complete - can move to its own file
-;;(require-package 'auto-complete)
-;;(require 'auto-complete)
-;;(require 'auto-complete-config)
-
-(setq ac-comphist-file (concat emacsd-cache-directory "ac-comphidt.dat"))
 
 ;; color theme - must come after the packages are loaded!
 (load-theme 'flatland t)

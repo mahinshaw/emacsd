@@ -1,3 +1,6 @@
+;;; mac.el --- Setting for the mac
+;;; Commentary:
+;;; Code:
 ;; set the face and font
 (set-face-font 'default "Source Code Pro 12")
 
@@ -8,7 +11,14 @@
 ;; dont use native full screen
 (setq ns-use-native-fullscreen nil)
 
-;; start in fullscreen
-;;(toggle-frame-fullscreen)
+;; Toggle me fullscreen timbers with cmd-Enter -- also F11
+(global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)
+
+;; set PATH variables with exec-path-from-shell
+(after 'init-packages
+  (require-package 'exec-path-from-shell)
+  (require 'exec-path-from-shell)
+  (exec-path-from-shell-initialize))
 
 (provide 'mac)
+;;; mac.el ends here
