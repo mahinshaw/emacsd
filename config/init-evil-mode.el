@@ -33,11 +33,13 @@
 (require-package 'evil)
 (require-package 'evil-leader)
 (require-package 'evil-surround)
+(require-package 'evil-jumper)
 
 ;; require the plugin to be loaded
 (require 'evil)
 (require 'evil-leader)
 (require 'evil-surround)
+(require 'evil-jumper)
 
 ;; the following are required before evil-mode is set
 ;; evil-leader
