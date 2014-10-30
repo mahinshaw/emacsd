@@ -3,6 +3,9 @@
 (require-package 'magit)
 (require 'magit)
 
+;; open the magit status buffer in the current buffer.
+(setq magit-status-buffer-switch-function 'switch-to-buffer)
+
 ;; Magit mappings.
 (after 'evil
   (evil-add-hjkl-bindings magit-status-mode-map 'emacs
