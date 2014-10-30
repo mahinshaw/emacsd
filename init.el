@@ -59,8 +59,7 @@
 
 ;; Define modules to import
 (defcustom emacsd-modules
-  '(better-defaults
-    init-misc
+  '(init-misc
     init-ido
     ;; init-helm Use Ido for now, since I am a noob
     init-company
