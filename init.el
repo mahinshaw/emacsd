@@ -46,8 +46,18 @@
 ;; -------------------------------------------
 ;; add line numbers, because i like to count.
 (global-linum-mode t)
+(setq linum-delay t)
 ;; auto-indent
 (electric-indent-mode t)
+
+;; Autosave every 500 typed words
+(setq auto-save-interval 500)
+;; Scrolling
+(setq scroll-conservatively 10000) ;; scroll conservatively
+(setq scroll-step 1)               ;; scroll one line at a time.
+(setq scroll-margin 10)            ;; scroll when 10 lines from bottom or top.
+(setq hscroll-step 1)              ;; scroll one column at a time.
+(setq hscroll-margin 8)            ;; scroll when 8 lines from left or right.
 
 ;; Add the config folder to the emacs dir.
 (add-to-list 'load-path (concat user-emacs-directory "config"))

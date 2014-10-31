@@ -11,12 +11,8 @@
 (require-package 'omnisharp)
 (require 'omnisharp)
 
-(if is-windows
-    (setq omnisharp--curl-executable-path "C:/Program Files (x86)/Git/bin/curl.exe"
-          omnisharp-server-executable-path "C:/Users/Mark/workspace/omnisharpserver/OmniSharp/bin/Debug/OmniSharp.exe"))
-
 ;; add company-mode completion backend.
-(eval-after-load 'company
+(after 'company
   '(add-to-list 'company-backends 'company-omnisharp))
 
 (add-hook 'csharp-mode-hook 'omnisharp-mode)
