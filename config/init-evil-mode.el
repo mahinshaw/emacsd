@@ -34,12 +34,20 @@
 (require-package 'evil-leader)
 (require-package 'evil-surround)
 (require-package 'evil-jumper)
+(require-package 'evil-nerd-commenter)
 
 ;; require the plugin to be loaded
 (require 'evil)
 (require 'evil-leader)
 (require 'evil-surround)
 (require 'evil-jumper)
+(require 'evil-nerd-commenter)
+
+;; Nerd-commenter
+(global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
+(global-set-key (kbd "C-c l") 'evilnc-quick-comment-or-uncomment-to-the-line)
+(global-set-key (kbd "C-c c") 'evilnc-copy-and-comment-lines)
+(global-set-key (kbd "C-c p") 'evilnc-comment-or-uncomment-paragraphs)
 
 ;; the following are required before evil-mode is set
 ;; evil-leader
@@ -50,20 +58,38 @@
 (evil-leader/set-leader ",")
 (evil-leader/set-key
   "h" help-map
+
   "f" 'find-file
   "b" 'ibuffer
   "e" 'switch-to-buffer
   "d" 'dired
-  "ms" 'magit-status
-  "x" 'smex
-  "X" 'smex-major-mode-commands
+  "k" 'kill-buffer
   "q" 'kill-buffer-and-window
   "," 'other-window
+
+  "x" 'smex
+  "X" 'smex-major-mode-commands
+
+  ;; magit
+  "ms" 'magit-status
+
+  ;; projectile
   "pf" 'projectile-find-file
   "pd" 'projectile-find-dir
   "pD" 'projectile-dired
   "ps" 'projectile-switch-project
   "pb" 'projectile-project-buffers
+
+  ;; Evil nerd commenter
+  "ci" 'evilnc-comment-or-uncomment-lines
+  ;; take a leading digit and comments to the rightmost line digit.
+  ;; i.e 7,cl comments through 77 default is 1.
+  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line 
+  "cc" 'evilnc-copy-and-comment-lines
+  "cp" 'evilnc-comment-or-uncomment-paragraphs
+  "cr" 'comment-or-uncomment-region
+  "cv" 'evilnc-toggle-invert-comment-line-by-line
+  "\\" 'evilnc-comment-operator ;; TODO: useful? It works the same as ,cl.
   )
 
 ;; evil-surround
@@ -82,6 +108,10 @@
 (define-key evil-insert-state-map (kbd "C-k") "-> ")
 (define-key evil-insert-state-map (kbd "C-j") "->> ")
 (define-key evil-insert-state-map (kbd "C-h") "<- ")
+
+;; swap 0 and ^ because getting to 0 is easier and first non blank is more useful.
+(define-key evil-normal-state-map "^" 'evil-beginning-of-line)
+(define-key evil-normal-state-map "0" 'evil-first-non-blank)
 
 ;; Key-chord mappings for evil - key-chord allows 2 key presses.
 ;; this requires fast typing

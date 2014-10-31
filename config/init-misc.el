@@ -52,10 +52,9 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (elisp-slime-nav-mode)
-            (eldoc-mode)
-            (turn-on-eldoc-mode)))
+            (eldoc-mode)))
 
-(add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'ielm-mode-hook 'eldoc-mode)
 
 ;; evil mappings
 (after 'evil

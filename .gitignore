@@ -1,5 +1,5 @@
 .cache/
-.cache*
+*.cache*
 \#*
 flycheck*
 custom.el
@@ -7,6 +7,7 @@ backups
 elpa
 auto-save-list
 tutorial/
+url/
 eshell
 server
 projectile-bookmarks.eld
