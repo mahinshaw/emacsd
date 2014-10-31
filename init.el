@@ -86,6 +86,11 @@
 (when is-windows
   (require 'windows))
 
+;; emacsclient please.
+(require 'server)
+(unless 'server-running-p
+  (server-start))
+
 ;; color theme - must come after the packages are loaded!
 (load-theme 'flatland t)
 

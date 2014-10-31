@@ -1,8 +1,8 @@
 ;;; init-packages.el --- Packages
 ;;; Commentary:
 ;;; Code:
-(setq package-archives '(
-			 ("melpa" . "http://melpa.milkbox.net/packages/")
+(setq package-archives '(("melpa" . "http://melpa.org/packages/") 
+                         ("melpa-stable" . "http://stable.melpa.org/packages/")
  			 ("org" . "http://orgmode.org/elpa/")
 			 ("gnu" . "http://elpa.gnu.org/packages/")
 			 ("marmalade" . "http://marmalade-repo.org/packages/")))
