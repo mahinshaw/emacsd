@@ -47,12 +47,14 @@
 (global-aggressive-indent-mode)
 
 ;; elisp slime nav mode
+(require-package 'rainbow-delimiters)
 (require 'elisp-slime-nav)
 ;; When entering emacs-lisp-mode, use elisp-slime-nav-mode and eldoc-mode.
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (elisp-slime-nav-mode)
-            (eldoc-mode)))
+            (eldoc-mode)
+            (rainbow-delimiters-mode)))
 
 (add-hook 'ielm-mode-hook 'eldoc-mode)
 

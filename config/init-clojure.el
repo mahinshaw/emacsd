@@ -7,7 +7,8 @@
 (require 'clojure-mode)
 
 ;; Hook into smartparens
-(add-hook 'clojure-mode 'smartparens-strict-mode)
+(add-hook 'clojure-mode-hook 'smartparens-strict-mode)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
 (require 'cider)
 
