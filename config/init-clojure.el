@@ -19,6 +19,7 @@
 (after 'evil
   (evil-define-key 'normal clojure-mode-map
     (kbd "g s") 'cider-jump
+    (kbd "C-]") 'cider-jump
     (kbd "K") 'cider-doc
     (kbd "g K") 'cider-javadoc
     ;;Evaluate the current toplevel form. PREFIX => print in buffer.

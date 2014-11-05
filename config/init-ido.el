@@ -24,6 +24,10 @@
   ;; Setting to true means that case is ignored.
   ;;(setq ido-case-fold t)
 
+  ;; turn on extension ignore
+  (setq ido-ignore-extensions t)
+  (setq completion-ignored-extensions '(".obj" ".pdb" ".exe" ".dll"))
+
   ;; Really use ido everywhere.
   (require 'ido-ubiquitous)
   (setq ido-ubiquitous-mode 1)
