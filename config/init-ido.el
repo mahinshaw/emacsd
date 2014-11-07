@@ -14,7 +14,6 @@
   (flx-ido-mode 1)
 
   ;; Really use ido everywhere.
-  (setq ido-ubiquitous-mode 1)
   (setq ido-enable-prefix nil
         ido-enable-flex-matching t
         ido-use-faces nil
