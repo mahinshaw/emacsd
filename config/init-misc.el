@@ -48,6 +48,7 @@
 
 ;; elisp slime nav mode
 (require-package 'rainbow-delimiters)
+(require-package 'elisp-slime-nav)
 (require 'elisp-slime-nav)
 ;; When entering emacs-lisp-mode, use elisp-slime-nav-mode and eldoc-mode.
 (add-hook 'emacs-lisp-mode-hook
