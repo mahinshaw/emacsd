@@ -103,6 +103,7 @@
   (server-start))
 
 ;; color theme - must come after the packages are loaded!
+(require-package 'flatland-theme)
 (load-theme 'flatland t)
 
 ;;; init.el ends here

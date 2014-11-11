@@ -22,4 +22,16 @@
   (setq web-mode-code-indent-offset 2))
 
 (add-hook 'web-mode-hook 'my-web-mode-hook)
+
+;; Markdown is kinda the web, so for now, I will put it here
+(require-package 'markdown-mode)
+(require 'markdown-mode)
+
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files." t)
+
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
 (provide 'init-web)

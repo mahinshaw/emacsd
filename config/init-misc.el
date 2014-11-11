@@ -62,7 +62,7 @@
 (after 'evil
   ;; Elisp
   (evil-define-key 'normal emacs-lisp-mode-map
-    (kbd "g s") 'elisp-slime-nav-find-elisp-thing-at-point
+    (kbd "g d") 'elisp-slime-nav-find-elisp-thing-at-point
     (kbd "K")   'elisp-slime-nav-describe-elisp-thing-at-point
     (kbd "<return>") 'eval-defun
     (kbd "g X") 'eval-buffer
