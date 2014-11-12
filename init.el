@@ -77,6 +77,7 @@
     init-org
     init-clojure
     init-csharp
+    init-web
     init-eclim
     init-magit
     init-smartparens
