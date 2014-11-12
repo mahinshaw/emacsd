@@ -58,6 +58,7 @@
 (setq scroll-margin 10)            ;; scroll when 10 lines from bottom or top.
 (setq hscroll-step 1)              ;; scroll one column at a time.
 (setq hscroll-margin 8)            ;; scroll when 8 lines from left or right.
+(toggle-truncate-lines)
 
 ;; Add the config folder to the emacs dir.
 (add-to-list 'load-path (concat user-emacs-directory "config"))
@@ -97,6 +98,16 @@
 ;; Windows specific
 (when is-windows
   (require 'windows))
+
+;; if linux -> gimme fullscreen with s-enter!
+(when is-linux
+  (progn
+    (defun toggle-fullscreen ()
+      (interactive)
+      (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
+                                               nil
+                                             'fullboth)))
+    (global-set-key [(super return)] 'toggle-fullscreen)))
 
 ;; emacsclient please.
 (require 'server)

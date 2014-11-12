@@ -7,6 +7,8 @@
 ;; Am I using Window? (only because I have to at work.
 (setq is-windows (equal system-type 'windows-nt))
 
+(setq is-linux (equal system-type 'gnu/linux))
+
 ;; Macro for loading after another package has been loaded
 ;; with-eval-after-load does not require a single command, or a '(progn)
 (if (fboundp 'with-eval-after-load)
