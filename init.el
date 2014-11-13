@@ -58,7 +58,7 @@
 (setq scroll-margin 10)            ;; scroll when 10 lines from bottom or top.
 (setq hscroll-step 1)              ;; scroll one column at a time.
 (setq hscroll-margin 8)            ;; scroll when 8 lines from left or right.
-(toggle-truncate-lines)
+(set-default 'truncate-lines t)
 
 ;; Add the config folder to the emacs dir.
 (add-to-list 'load-path (concat user-emacs-directory "config"))
