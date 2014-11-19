@@ -19,6 +19,7 @@
 (after 'evil
   (evil-define-key 'normal clojure-mode-map
     (kbd "g d") 'cider-jump-to-var
+    (kbd "g b") 'cider-jump-back
     (kbd "C-]") 'cider-jump-to-var
     (kbd "K") 'cider-doc
     (kbd "g K") 'cider-javadoc
