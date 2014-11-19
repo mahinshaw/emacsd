@@ -24,8 +24,14 @@
   "Maximize the active from in windows"
   (interactive)
   (w32-send-sys-command 61488))
+
 ;; hook in on startup
-(add-hook 'window-setup-hook 'maximize-frame t)
+;; 24.4 add toggle-frame-maximized and toggle-frame-fullscreen
+(if (functionp 'toggle-frame-maximized)  
+    (add-hook 'window-setup-hook 'toggle-frame-maximized t)
+  (add-hook 'window-setup-hook 'maximize-frame t))
+(if (functionp 'toggle-frame-fullscreen)
+    (global-set-key (kbd "M-RET") 'toggle-frame-fullscreen))
 
 ;;(eval-after-load 'projectile
 ;;       (setq projectile-indexing-method alien))
