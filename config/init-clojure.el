@@ -6,8 +6,7 @@
 (require-package 'cider)
 (require 'clojure-mode)
 
-;; Hook into smartparens
-(add-hook 'clojure-mode-hook 'smartparens-strict-mode)
+;; Hooks
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
 (require 'cider)
@@ -20,11 +19,9 @@
  cider-prompt-save-file-on-load nil
  )
 
+;; REPL hooks
 ;; Enable eldoc for cidermode
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
-
-;; REPL hooks
-(add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
 ;; evil mappings.
