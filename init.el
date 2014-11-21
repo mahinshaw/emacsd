@@ -81,7 +81,8 @@
     init-web
     init-eclim
     init-magit
-    init-smartparens
+    ;; init-smartparens
+    init-paredit
     init-projectile
     init-evil-mode)
   "Set of my enabled modules."

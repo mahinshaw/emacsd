@@ -13,6 +13,9 @@
 (show-smartparens-global-mode t)
 (sp-use-smartparens-bindings)
 
+(add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)
+(add-hook 'clojure-mode-hook 'smartparens-strict-mode)
+
 (after 'evil
   (evil-define-key 'normal sp-keymap
     (kbd ">s") 'sp-forward-sexp
