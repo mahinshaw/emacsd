@@ -10,6 +10,7 @@
 ;; (require-package 'company-mode)
 (require-package 'omnisharp)
 (require 'omnisharp)
+(diminish 'omnisharp-mode)
 
 ;; add company-mode completion backend.
 (after 'company

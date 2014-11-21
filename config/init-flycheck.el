@@ -1,6 +1,7 @@
 ;; Flycheck related configs.
 (require-package 'flycheck)
 (require 'flycheck)
+(diminish 'flycheck-mode)
 
 (add-hook 'after-init-hook 'global-flycheck-mode)
 

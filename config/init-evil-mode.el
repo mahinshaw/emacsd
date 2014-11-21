@@ -11,6 +11,7 @@
 ;;; Code:
 (require-package 'undo-tree)
 (require 'undo-tree)
+(diminish 'undo-tree-mode)
 (setq undo-tree-auto-save-history t)
 (setq undo-tree-history-directory-alist
       `(("." . ,(concat emacsd-cache-directory "undo"))))

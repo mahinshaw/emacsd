@@ -11,6 +11,8 @@
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
 (require 'cider)
+(diminish 'cider-mode)
+
 (setq
  nrepl-log-messages t
  cider-repl-use-clojure-font-lock t

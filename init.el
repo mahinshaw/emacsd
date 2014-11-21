@@ -67,6 +67,8 @@
 (require 'cl)
 (require 'init-packages)
 (require 'init-utils)
+(require-package 'diminish)
+(require 'diminish)
 
 ;; Define modules to import
 (defcustom emacsd-modules
