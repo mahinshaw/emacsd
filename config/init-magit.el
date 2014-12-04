@@ -16,6 +16,9 @@
   (evil-define-key 'emacs magit-log-mode-map
     "j" 'magit-goto-next-section
     "k" 'magit-goto-previous-section)
+  (evil-define-key 'emacs magit-commit-mode-map
+    "j" 'magit-goto-next-section
+    "k" 'magit-goto-previous-section)
   (evil-define-key 'emacs magit-diff-mode-map
     "j" 'magit-goto-next-section
     "k" 'magit-goto-previous-section
