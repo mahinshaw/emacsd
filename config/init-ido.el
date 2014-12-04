@@ -21,6 +21,7 @@
         ido-max-prospects 10
         ido-create-new-buffer 'always
         ido-save-directory-list-file (expand-file-name "ido.hist" emacsd-cache-directory)
+        ido-ignore-files '("flycheck_" "#*#")
         ido-ignore-extensions t
         completion-ignored-extensions '(".obj" ".pdb" ".exe" ".dll"))
 
