@@ -63,6 +63,15 @@
 
 ;; evil mappings
 (after 'evil
+  ;; Package Meny
+  (define-key package-menu-mode-map (kbd "/") 'evil-search-forward)
+  (define-key package-menu-mode-map (kbd "?") 'evil-search-backward)
+  (define-key package-menu-mode-map (kbd "n") 'evil-next-match)
+  (define-key package-menu-mode-map (kbd "N") 'evil-next-match)
+  (define-key package-menu-mode-map (kbd "j") 'next-line)
+  (define-key package-menu-mode-map (kbd "k") 'previous-line))
+
+(after 'evil
   ;; Elisp
   (evil-define-key 'normal emacs-lisp-mode-map
     (kbd "g d") 'elisp-slime-nav-find-elisp-thing-at-point
