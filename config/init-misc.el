@@ -61,6 +61,17 @@
 
 (add-hook 'ielm-mode-hook 'eldoc-mode)
 
+;; http://www.gnu.org/software/mit-scheme/documentation/mit-scheme-user/GNU-Emacs-Interface.html#GNU-Emacs-Interface
+(require 'xscheme)
+(after 'evil
+  (evil-define-key 'normal scheme-mode-map
+    (kbd "g d") 'elisp-slime-nav-find-elisp-thing-at-point
+    (kbd "<return>") 'xscheme-send-definition
+    (kbd "g X") 'xscheme-send-buffer)
+  (evil-define-key 'visual scheme-mode-map
+    (kbd "<return>") 'xscheme-send-region)
+  )
+
 ;; evil mappings
 (after 'evil
   ;; Package Meny
