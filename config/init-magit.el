@@ -3,6 +3,8 @@
 (require-package 'magit)
 (require 'magit)
 
+(diminish 'magit-auto-revert-mode)
+
 ;; open the magit status buffer in the current buffer.
 (setq magit-status-buffer-switch-function 'switch-to-buffer)
 
