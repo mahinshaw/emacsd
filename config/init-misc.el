@@ -85,6 +85,10 @@
   (define-key package-menu-mode-map (kbd "?") 'evil-search-backward)
   (define-key package-menu-mode-map (kbd "n") 'evil-next-match)
   (define-key package-menu-mode-map (kbd "N") 'evil-next-match)
+  (define-key package-menu-mode-map (kbd "g g") 'evil-goto-first-line)
+  (define-key package-menu-mode-map (kbd "G") 'evil-goto-line)
+  (define-key package-menu-mode-map (kbd "C-u") 'evil-scroll-up)
+  (define-key package-menu-mode-map (kbd "C-d") 'evil-scroll-down)
   (define-key package-menu-mode-map (kbd "j") 'next-line)
   (define-key package-menu-mode-map (kbd "k") 'previous-line))
 
