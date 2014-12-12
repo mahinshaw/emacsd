@@ -40,11 +40,7 @@
     (kbd "g x") 'cider-eval-last-sexp)
   (evil-define-key 'visual clojure-mode-map
     (kbd "<return>") 'cider-eval-region)
-  (evil-define-key 'normal cider-repl-mode-map
-    (kbd "g K") 'cider-javadoc
-    (kbd "<return>") 'cider-repl-return)
-  (evil-define-key 'visual cider-repl-mode-map
-    (kbd "<return>") 'cider-repl-return)
+  (evil-define-key 'normal cider-repl-mode-map (kbd "g K") 'cider-javadoc)
   (evil-define-key 'normal cider-mode-map (kbd "g K") 'cider-javadoc))
 
 (provide 'init-clojure)
