@@ -38,6 +38,9 @@
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
                  (concat emacsd-cache-directory "backups")))))
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name
+                (concat emacsd-cache-directory "autosaves")) t)))
 
 ;; Make backup files all the time, even when in versioning
 (setq vc-make-backup-files t)

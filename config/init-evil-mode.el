@@ -30,6 +30,8 @@
 ;; C-u to scroll please
 (setq evil-want-C-u-scroll t)
 
+(setq-default evil-symbol-word-search t)
+
 ;; require the package.
 (require-package 'evil)
 (require-package 'evil-leader)
