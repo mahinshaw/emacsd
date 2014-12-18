@@ -86,6 +86,7 @@
     init-clojure
     init-csharp
     init-web
+    init-js
     init-eclim
     init-magit
     ;; init-smartparens
