@@ -41,6 +41,10 @@
       ediff-window-setup-function 'ediff-setup-windows-plain)
 ;;; end taken from better-defaults.el
 
+;;; Use restclient
+(require-package 'restclient)
+(require 'restclient)
+
 ;; Aggressive-indent
 (require-package 'aggressive-indent)
 (require 'aggressive-indent)
