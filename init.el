@@ -79,6 +79,7 @@
 (defcustom emacsd-modules
   '(init-misc
     init-ido
+    init-ag
     ;; init-helm Use Ido for now, since I am a noob
     init-company
     init-flycheck
