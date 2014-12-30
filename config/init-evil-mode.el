@@ -37,20 +37,16 @@
 (require-package 'evil-leader)
 (require-package 'evil-surround)
 (require-package 'evil-jumper)
-(require-package 'evil-nerd-commenter)
+(require-package 'evil-commentary)
 
 ;; require the plugin to be loaded
 (require 'evil)
 (require 'evil-leader)
 (require 'evil-surround)
 (require 'evil-jumper)
-(require 'evil-nerd-commenter)
+(require 'evil-commentary)
 
-;; Nerd-commenter
-(global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines)
-(global-set-key (kbd "C-c l") 'evilnc-quick-comment-or-uncomment-to-the-line)
-(global-set-key (kbd "C-c c") 'evilnc-copy-and-comment-lines)
-(global-set-key (kbd "C-c p") 'evilnc-comment-or-uncomment-paragraphs)
+(evil-commentary-default-setup)
 
 ;; the following are required before evil-mode is set
 ;; evil-leader
@@ -82,17 +78,7 @@
   "pD" 'projectile-dired
   "ps" 'projectile-switch-project
   "pb" 'projectile-project-buffers
-
-  ;; Evil nerd commenter
-  "ci" 'evilnc-comment-or-uncomment-lines
-  ;; take a leading digit and comments to the rightmost line digit.
-  ;; i.e 7,cl comments through 77 default is 1.
-  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line 
-  "cc" 'evilnc-copy-and-comment-lines
-  "cp" 'evilnc-comment-or-uncomment-paragraphs
-  "cr" 'comment-or-uncomment-region
-  "cv" 'evilnc-toggle-invert-comment-line-by-line
-  "\\" 'evilnc-comment-operator ;; TODO: useful? It works the same as ,cl.
+  "pa" 'projectile-ag
   )
 
 ;; evil-surround
