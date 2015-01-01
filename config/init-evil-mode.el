@@ -69,6 +69,9 @@
   "x" 'smex
   "X" 'smex-major-mode-commands
 
+  ;; undo-tree
+  "U" 'undo-tree-visualize
+
   ;; magit
   "ms" 'magit-status
 
@@ -79,6 +82,9 @@
   "ps" 'projectile-switch-project
   "pb" 'projectile-project-buffers
   "pa" 'projectile-ag
+  "pk" 'projectile-kill-buffers
+  "pb" 'projectile-ibuffer
+  "pe" 'projectile-buffers-with-file
   )
 
 ;; evil-surround
