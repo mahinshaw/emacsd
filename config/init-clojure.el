@@ -20,6 +20,19 @@
  cider-prompt-save-file-on-load nil
  )
 
+(defun cider-eval-defun-at-point-in-repl ()
+  (interactive)
+  (let ((form (cider-defun-at-point)))
+    ;; strip excess white space
+    (while (string-match "\\`\s+\\|\n+\\'" form)
+      (setq form (replace-match "" t t form)))
+    (set-buffer (cider-get-repl-buffer))
+    (goto-char (point-max))
+    (insert form)
+    (cider-repl-return)))
+
+(define-key cider-mode-map (kbd "C-c M-r") 'cider-eval-defun-at-point-in-repl)
+
 ;; REPL hooks
 ;; Enable eldoc for cidermode
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
@@ -36,6 +49,7 @@
     (kbd "g K") 'cider-javadoc
     ;;Evaluate the current toplevel form. PREFIX => print in buffer.
     (kbd "<return>") 'cider-eval-defun-at-point
+    (kbd "<C-return>") 'cider-eval-defun-at-point-in-repl
     (kbd "g X") 'cider-eval-buffer
     (kbd "g x") 'cider-eval-last-sexp)
   (evil-define-key 'visual clojure-mode-map
