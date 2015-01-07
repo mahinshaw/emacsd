@@ -93,7 +93,8 @@
     ;; init-smartparens
     init-paredit
     init-projectile
-    init-evil-mode)
+    init-evil-mode
+    init-sml)
   "Set of my enabled modules."
   :group 'emacsd)
 
