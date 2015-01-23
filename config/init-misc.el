@@ -26,6 +26,14 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
+;; Clear comint buffers
+(defun comint-clear-buffer ()
+  (interactive)
+  (let ((comint-buffer-maximum-size 0))
+    (comint-truncate-buffer)))
+
+(define-key comint-mode-map (kbd "C-c M-o") #'comint-clear-buffer)
+
 ;; show matching parens please!
 (show-paren-mode 1)
 ;; setting indent-tabs-mode to nil means indent with spaces.
