@@ -32,6 +32,7 @@
   (let ((comint-buffer-maximum-size 0))
     (comint-truncate-buffer)))
 
+(require 'comint)
 (define-key comint-mode-map (kbd "C-c M-o") #'comint-clear-buffer)
 
 ;; show matching parens please!
