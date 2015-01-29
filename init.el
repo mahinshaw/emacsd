@@ -94,7 +94,9 @@
     init-paredit
     init-projectile
     init-evil-mode
-    init-sml)
+    init-sml
+    init-erc
+    init-rcirc)
   "Set of my enabled modules."
   :group 'emacsd)
 
