@@ -95,6 +95,7 @@
     init-projectile
     init-evil-mode
     init-sml
+    init-spell
     init-erc
     init-rcirc)
   "Set of my enabled modules."
