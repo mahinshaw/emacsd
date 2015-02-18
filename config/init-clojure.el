@@ -6,6 +6,9 @@
 (require-package 'cider)
 (require 'clojure-mode)
 
+;; Boot files should use clojure mode
+(add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
+
 ;; Hooks
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook 'superword-mode)
