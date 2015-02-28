@@ -5,9 +5,12 @@
 (require-package 'clojure-mode)
 (require-package 'cider)
 (require 'clojure-mode)
+(require-package 'clojure-mode-extra-font-locking)
+(require 'clojure-mode-extra-font-locking)
 
 ;; Boot files should use clojure mode
 (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.hl\\'" . clojure-mode))
 
 ;; Hooks
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)

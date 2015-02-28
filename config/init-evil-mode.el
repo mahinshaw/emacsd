@@ -121,7 +121,8 @@
 
 ;; modes that need a specific initial state other than insert.
 (dolist (mode-map '((git-commit-mode . insert)
-                    (cider-repl-mode . insert)))
+                    (cider-repl-mode . insert)
+                    (rcirc-mode . insert)))
   (evil-set-initial-state `,(car mode-map) `,(cdr mode-map)))
 
 (provide 'init-evil-mode)

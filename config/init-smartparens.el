@@ -1,9 +1,13 @@
 ;; Settings for smartparens
 
 (require-package 'smartparens)
+(require-package 'evil-smartparens)
 (require 'smartparens)
+(require 'evil-smartparens)
 ;; default settings for smartparens
 (require 'smartparens-config)
+
+(add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
 
 (setq sp-show-pair-from-inside t)
 
