@@ -33,6 +33,12 @@
 (if (functionp 'toggle-frame-fullscreen)
     (global-set-key (kbd "M-RET") 'toggle-frame-fullscreen))
 
+;; GnuTLS
+(when 'gnutls-available-p
+  (setq gnutls-trustfiles "C:/Users/Mark/.ssh/cacert.pem"))
+
+(prefer-coding-system 'utf-8)
+
 ;;(eval-after-load 'projectile
 ;;       (setq projectile-indexing-method alien))
 
