@@ -90,14 +90,13 @@
     init-js
     init-eclim
     init-magit
-    ;; init-smartparens
-    init-paredit
     init-projectile
     init-evil-mode
     init-sml
     init-spell
     init-erc
-    init-rcirc)
+    init-rcirc
+    init-smartparens)
   "Set of my enabled modules."
   :group 'emacsd)
 

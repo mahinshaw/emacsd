@@ -7,7 +7,8 @@
 ;; default settings for smartparens
 (require 'smartparens-config)
 
-(add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
+(after 'evil
+  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode))
 
 (setq sp-show-pair-from-inside t)
 
