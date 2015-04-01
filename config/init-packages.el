@@ -18,6 +18,15 @@
       (package-refresh-contents))
     (package-install package)))
 
+;; make sure we have use-package installed.
+(require-package 'use-package)
+(eval-when-compile
+  (require 'use-package))
+
+;; requires for use-package
+(require 'diminish)
+(require 'bind-key)
+
 ;; Make this file reference-able
 (provide 'init-packages)
 ;;; init-packages.el ends here

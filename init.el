@@ -70,8 +70,7 @@
 (require 'cl)
 (require 'init-packages)
 (require 'init-utils)
-(require-package 'diminish)
-(require 'diminish)
+
 ;; http://www.gnu.org/software/mit-scheme/documentation/mit-scheme-user/GNU-Emacs-Interface.html#GNU-Emacs-Interface
 (require 'xscheme)
 
