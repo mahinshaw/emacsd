@@ -1,5 +1,5 @@
 ;; Javascript based plugins.
-(require-package 'js2-mode)
-(require 'js2-mode)
+(use-package js2-mode
+  :ensure t)
 
 (provide 'init-js)

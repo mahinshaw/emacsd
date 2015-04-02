@@ -1,8 +1,8 @@
 ;; Setup for ag
-(require-package 'ag)
-(require 'ag)
-
-(setq ag-highlight-search t)
-(setq ag-reuse-buffers 't) ;; reuse the same buffer for ag output.
+(use-package ag
+  :ensure t
+  :init
+  (setq ag-highlight-search t
+        ag-reuse-buffers t)) ;; reuse the same buffer for ag output.
 
 (provide 'init-ag)

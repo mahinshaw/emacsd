@@ -71,9 +71,6 @@
 (require 'init-packages)
 (require 'init-utils)
 
-;; http://www.gnu.org/software/mit-scheme/documentation/mit-scheme-user/GNU-Emacs-Interface.html#GNU-Emacs-Interface
-(require 'xscheme)
-
 ;; Define modules to import
 (defcustom emacsd-modules
   '(init-misc
@@ -123,11 +120,14 @@
 
 ;; emacsclient please.
 (require 'server)
-(unless 'server-running-p
+(unless (server-running-p)
   (server-start))
 
 ;; color theme - must come after the packages are loaded!
-(require-package 'flatland-theme)
-(load-theme 'flatland t)
+(use-package flatland-theme
+  :ensure t
+  :config
+  (progn
+    (load-theme 'flatland t)))
 
 ;;; init.el ends here

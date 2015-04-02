@@ -9,8 +9,8 @@
   "Kill up to, but not including ARGth occurrence of CHAR." t)
 
 ;; Uniquify lets the buffer use the directory.  Forward says use forwared slashes.
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'forward)
+(use-package uniquify
+  :init (setq uniquify-buffer-name-style 'forward))
 
 ;; Autocomplete in place; Expand completion options in place.
 (global-set-key (kbd "M-/") 'hippie-expand)
@@ -51,49 +51,51 @@
 ;;; end taken from better-defaults.el
 
 ;;; Use restclient
-(require-package 'restclient)
-(require 'restclient)
+(use-package restclient
+  :ensure t)
 
 ;; Aggressive-indent
-(require-package 'aggressive-indent)
-(require 'aggressive-indent)
-(diminish 'aggressive-indent-mode)
-;; (global-aggressive-indent-mode)
+(use-package aggressive-indent
+  :ensure t
+  ;; :config (global-aggressive-indent-mode)
+  :diminish aggressive-indent-mode)
 
 ;; diminish Eldoc
-(after 'eldoc
-  (diminish 'eldoc-mode))
+(use-package eldoc
+  :diminish eldoc-mode)
 
 ;; elisp slime nav mode
-(require-package 'rainbow-delimiters)
-(require-package 'elisp-slime-nav)
-(require 'elisp-slime-nav)
-(after 'elisp-slime-nav
-  (diminish 'elisp-slime-nav-mode))
+(use-package rainbow-delimiters
+  :ensure t)
+(use-package elisp-slime-nav
+  :ensure t
+  :init 
+  (add-hook 'emacs-lisp-mode-hook
+            (lambda ()
+              (elisp-slime-nav-mode)
+              (eldoc-mode)
+              (rainbow-delimiters-mode)))
+  :diminish elisp-slime-nav-mode)
 
 ;; When entering emacs-lisp-mode, use elisp-slime-nav-mode and eldoc-mode.
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (elisp-slime-nav-mode)
-            (eldoc-mode)
-            (rainbow-delimiters-mode)))
 
 (add-hook 'ielm-mode-hook 'eldoc-mode)
 
 ;; http://www.gnu.org/software/mit-scheme/documentation/mit-scheme-user/GNU-Emacs-Interface.html#GNU-Emacs-Interface
-(require 'xscheme)
-(after 'evil
-  (evil-define-key 'normal scheme-mode-map
-    (kbd "g d") 'elisp-slime-nav-find-elisp-thing-at-point
-    (kbd "<return>") 'xscheme-send-definition
-    (kbd "g X") 'xscheme-send-buffer)
-  (evil-define-key 'visual scheme-mode-map
-    (kbd "<return>") 'xscheme-send-region)
-  )
+(use-package xscheme
+  :init
+  (after 'evil
+    (evil-define-key 'normal scheme-mode-map
+      (kbd "g d") 'elisp-slime-nav-find-elisp-thing-at-point
+      (kbd "<return>") 'xscheme-send-definition
+      (kbd "g X") 'xscheme-send-buffer)
+    (evil-define-key 'visual scheme-mode-map
+      (kbd "<return>") 'xscheme-send-region)
+    ))
 
 ;; evil mappings
 (after 'evil
-  ;; Package Meny
+  ;; Package Menu
   (define-key package-menu-mode-map (kbd "/") 'evil-search-forward)
   (define-key package-menu-mode-map (kbd "?") 'evil-search-backward)
   (define-key package-menu-mode-map (kbd "n") 'evil-next-match)

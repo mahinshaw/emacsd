@@ -1,1 +1,4 @@
-(require-package 'haskell-mode)
+(use-package haskell-mode
+  :ensure t)
+
+(provide 'init-haskell)

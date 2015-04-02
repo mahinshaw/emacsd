@@ -2,20 +2,26 @@
 ;;; Commentary:
 ;; Cider -> https://github.com/clojure-emacs/cider
 ;;; Code:
-(require-package 'clojure-mode)
-(require-package 'cider)
-(require 'clojure-mode)
-(require-package 'clojure-mode-extra-font-locking)
-(require 'clojure-mode-extra-font-locking)
+(use-package clojure-mode
+  :ensure t
+  :mode ("\\.\\(boot\\|hl\\)\\'" . clojure-mode)
+  :init
+  (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'clojure-mode-hook 'superword-mode)
+  )
+
+(use-package clojure-mode-extra-font-locking
+  :ensure t)
+
+(use-package cider
+  :ensure t
+  :diminish cider-mode)
 
 ;; Boot files should use clojure mode
-(add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
-(add-to-list 'auto-mode-alist '("\\.hl\\'" . clojure-mode))
+;; (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
+;; (add-to-list 'auto-mode-alist '("\\.hl\\'" . clojure-mode))
 
 ;; Hooks
-(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'clojure-mode-hook 'superword-mode)
-
 (require 'cider)
 (diminish 'cider-mode)
 
