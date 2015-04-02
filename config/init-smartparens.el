@@ -3,6 +3,7 @@
 (require-package 'smartparens)
 (require-package 'evil-smartparens)
 (use-package smartparens
+  :defer t
   :ensure t
   :init
   ;; default settings for smartparens

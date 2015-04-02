@@ -1,6 +1,7 @@
 ;; Settings related to Magit
 ;; Nuggets @ http://www.masteringemacs.org/article/introduction-magit-emacs-mode-git
 (use-package magit
+  :defer t
   :ensure t
   :init
   ;; open the magit status buffer in the current buffer.

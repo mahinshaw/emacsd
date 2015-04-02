@@ -1,6 +1,7 @@
 ;; Company-mode completes for me.
 ;; Mode specific backends are handled within the specific init-*.
 (use-package company
+  :defer t
   :ensure t
   :init
   (add-hook 'after-init-hook 'global-company-mode)

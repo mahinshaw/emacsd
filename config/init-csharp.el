@@ -2,6 +2,7 @@
 
 ;; csharp-mode
 (use-package csharp-mode
+  :defer t
   :ensure t
   :init
   (setq csharp-want-imenu nil)

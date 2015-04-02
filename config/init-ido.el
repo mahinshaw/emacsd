@@ -1,6 +1,7 @@
 ;; Ido mode settings.
 ;; Some nuggets at http://www.masteringemacs.org/article/introduction-to-ido-mode
 (use-package ido-ubiquitous
+  :defer t
   :ensure t
   :init
   (progn

@@ -1,4 +1,5 @@
 (use-package paredit
+  :defer t
   :ensure t
   :init
   (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
@@ -12,6 +13,7 @@
   :diminish (paredit-mode . "Par"))
 
 (use-package evil-paredit
+  :defer t
   :ensure t
   :config
   (after 'evil

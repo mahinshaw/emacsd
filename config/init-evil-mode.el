@@ -19,6 +19,7 @@
 
 ;; require the plugin to be loaded
 (use-package evil-leader
+  :defer t
   :ensure t
   :init
   ;; This line makes sure the leader is usable in all Modes
@@ -59,6 +60,7 @@
     "pe" 'projectile-buffers-with-file))
 
 (use-package evil
+  :defer t
   :ensure t
   :init
   ;; Customize the cursor based on the state.
@@ -109,15 +111,10 @@
   :ensure t
   :init (evil-commentary-default-setup))
 
-
-;; the following are required before evil-mode is set
-;; evil-leader
-
-
-
 ;; Key-chord mappings for evil - key-chord allows 2 key presses.
 ;; this requires fast typing
 (use-package key-chord
+  :defer t
   :ensure t
   :init
   (key-chord-mode 1)
@@ -126,7 +123,6 @@
   (key-chord-define evil-visual-state-map "jk" 'evil-normal-state)
   (key-chord-define evil-normal-state-map "vv" 'split-window-horizontally)
   (key-chord-define evil-normal-state-map "ss" 'split-window-vertically))
-
 
 (provide 'init-evil-mode)
 ;;; init-evil-mode.el ends here
