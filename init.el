@@ -74,9 +74,9 @@
 ;; Define modules to import
 (defcustom emacsd-modules
   '(init-misc
-    init-ido
+    ;; init-ido
     init-ag
-    ;; init-helm Use Ido for now, since I am a noob
+    init-helm
     init-company
     init-flycheck
     init-org

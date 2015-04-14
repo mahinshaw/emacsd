@@ -39,8 +39,8 @@
     "q" 'kill-buffer-and-window
     "," 'other-window
 
-    "x" 'smex
-    "X" 'smex-major-mode-commands
+    "x" 'helm-M-x
+    ;; "X" 'smex-major-mode-commands
 
     ;; undo-tree
     "U" 'undo-tree-visualize
