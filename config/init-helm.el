@@ -13,6 +13,8 @@
 
     (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
     (define-key helm-map (kbd "C-z") 'helm-select-action)
+    (define-key helm-map (kbd "C-f") 'helm-next-page)
+    (define-key helm-map (kbd "C-b") 'helm-previous-page)
 
     (when (executable-find "curl")
       (setq helm-google-suggest-use-curl-p t))
