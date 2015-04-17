@@ -24,12 +24,25 @@
 
 ;; Markdown is kinda the web, so for now, I will put it here
 (use-package markdown-mode
+  :defer t
   :ensure t
   :mode (("\\.text\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode)
          ("\\.md\\'" . markdown-mode))
   :init
   (autoload 'markdown-mode "markdown-mode"
-    "Major mode for editing Markdown files." t))
+    "Major mode for editing Markdown files." t)
+  :config
+  (after 'evil
+    (evil-define-key 'normal markdown-mode-map
+      (kbd "M-h") 'markdown-promote
+      (kbd "M-l") 'markdown-demote
+      (kbd "> >") 'markdown-indent-region
+      (kbd "< <") 'markdown-exdent-region)
+    (evil-define-key 'insert markdown-mode-map
+      (kbd "M-h") 'markdown-promote
+      (kbd "M-l") 'markdown-demote)
+    )
+  )
 
 (provide 'init-web)
