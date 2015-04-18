@@ -32,7 +32,7 @@
     "h" help-map
 
     "f" 'find-file
-    "b" 'ibuffer
+    "b" 'helm-mini
     "e" 'switch-to-buffer
     "d" 'dired
     "k" 'kill-buffer
@@ -48,17 +48,26 @@
     ;; magit
     "ms" 'magit-status
 
+    ;; helm specific
+    "ha" 'helm-apropos
+    "hf" 'helm-find
+    "hl" 'helm-locate
+    "hm" 'helm-man-woman
+    "ho" 'helm-occur
+    "hs" 'helm-semantic-or-imenu
+    "ht" 'helm-top
+    
     ;; projectile
-    "pf" 'projectile-find-file
-    "pd" 'projectile-find-dir
-    "pD" 'projectile-dired
-    "ps" 'projectile-switch-project
-    "pb" 'projectile-project-buffers
-    "pa" 'projectile-ag
-    "pk" 'projectile-kill-buffers
-    "pb" 'projectile-ibuffer
-    "pe" 'projectile-buffers-with-file))
-
+    "pf" 'helm-projectile-find-file
+    "pd" 'helm-projectile-find-dir
+    "pD" 'helm-projectile-dired
+    "ps" 'helm-projectile-switch-project
+    "pb" 'helm-projectile-project-buffers
+    "pa" 'helm-projectile-ag
+    "pk" 'helm-projectile-kill-buffers
+    "pb" 'helm-projectile-ibuffer
+    "pe" 'helm-projectile-buffers-with-file))
+ 
 (use-package evil
   :defer t
   :ensure t
