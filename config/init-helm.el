@@ -34,6 +34,14 @@
          ("C-f" . helm-next-page)
          ("C-b" . helm-previous-page)
          ("C-M-f" . helm-scroll-other-window)
-         ("C-M-b" . helm-scroll-other-window-down)))
+         ("C-M-b" . helm-scroll-other-window-down))
+  :config (after 'evil
+            (define-key evil-normal-state-map (kbd "<SPC> h a") 'helm-apropos)
+            (define-key evil-normal-state-map (kbd "<SPC> h f") 'helm-find)
+            (define-key evil-normal-state-map (kbd "<SPC> h l") 'helm-locate)
+            (define-key evil-normal-state-map (kbd "<SPC> h m") 'helm-man-woman)
+            (define-key evil-normal-state-map (kbd "<SPC> h o") 'helm-occur)
+            (define-key evil-normal-state-map (kbd "<SPC> h s") 'helm-semantic-or-imenu)
+            (define-key evil-normal-state-map (kbd "<SPC> h t") 'helm-top)))
 
 (provide 'init-helm)

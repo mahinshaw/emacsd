@@ -31,7 +31,7 @@
   (evil-leader/set-key
     "h" help-map
 
-    "f" 'find-file
+    "f" 'helm-find-files
     "b" 'helm-mini
     "e" 'switch-to-buffer
     "d" 'dired
@@ -48,15 +48,6 @@
     ;; magit
     "ms" 'magit-status
 
-    ;; helm specific
-    "ha" 'helm-apropos
-    "hf" 'helm-find
-    "hl" 'helm-locate
-    "hm" 'helm-man-woman
-    "ho" 'helm-occur
-    "hs" 'helm-semantic-or-imenu
-    "ht" 'helm-top
-    
     ;; projectile
     "pf" 'helm-projectile-find-file
     "pd" 'helm-projectile-find-dir
