@@ -22,15 +22,19 @@
   :config
   (after 'evil
     (evil-define-key 'normal sp-keymap
-      (kbd ">s") 'sp-forward-sexp
-      (kbd "<s") 'sp-backward-sexp
-      (kbd ">y") 'sp-forward-slurp-sexp
-      (kbd "<y") 'sp-backward-slurp-sexp
-      (kbd ">d") 'sp-forward-barf-sexp
-      (kbd "<d") 'sp-backward-barf-sexp
+      (kbd "> )") 'sp-forward-slurp-sexp
+      (kbd "<SPC> f s") 'sp-forward-slurp-sexp
+      (kbd "< (") 'sp-backward-slurp-sexp
+      (kbd "<SPC> b s") 'sp-backward-slurp-sexp
+      (kbd "> (") 'sp-forward-barf-sexp
+      (kbd "<SPC> f b") 'sp-forward-barf-sexp
+      (kbd "< )") 'sp-backward-barf-sexp
+      (kbd "<SPC> b b") 'sp-backward-barf-sexp
       (kbd "C-(") 'sp-beginning-of-sexp
       (kbd "C-)") 'sp-end-of-sexp
       )))
+
+
 
 (use-package evil-smartparens
   :ensure t
