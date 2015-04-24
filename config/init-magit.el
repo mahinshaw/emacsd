@@ -10,7 +10,8 @@
   ;; Magit mappings.
   (after 'evil
     (evil-add-hjkl-bindings magit-status-mode-map 'emacs
-      "l" 'magit-key-mode-popup-logging)
+      "l" 'magit-key-mode-popup-logging
+      ":" 'magit-git-command)
     (evil-define-key 'normal magit-status-mode-map
       (kbd "[ c") 'magit-goto-previous-section
       (kbd "] c") 'magit-goto-next-section)
