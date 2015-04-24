@@ -82,6 +82,7 @@
     init-org
     init-clojure
     init-csharp
+    init-fsharp
     init-web
     init-js
     init-eclim

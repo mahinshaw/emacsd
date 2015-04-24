@@ -12,6 +12,11 @@
 (use-package omnisharp
   :ensure t
   :defer t
+  :bind (("C-c M-j" . omnisharp-start-omnisharp-server)
+         ("C-c C-q" . omnisharp-stop-server))
+  :init
+  (setq omnisharp-server-executable-path "~/workspace/OmniSharpServer/OmniSharp/bin/Debug/OmniSharp.exe"
+   omnisharp-imenu-support t)
   :config
   (after 'company
     '(add-to-list 'company-backends 'company-omnisharp))
@@ -25,8 +30,9 @@
     (evil-define-key 'insert omnisharp-mode-map (kbd "<f12>") 'omnisharp-show-last-auto-complete-result)
 
     ;; Normal mappings
-    (evil-define-key 'normal omnisharp-mode-map (kbd "C-]") 'omnisharp-go-to-definition) ;; no need for tags here.
-    (evil-define-key 'normal omnisharp-mode-map (kbd "SPC o u") 'omnisharp-find-usages)
+    (evil-define-key 'normal omnisharp-mode-map (kbd "g d") 'omnisharp-go-to-definition) ;; no need for tags here.
+    (evil-define-key 'normal omnisharp-mode-map (kbd "SPC o u") 'omnisharp-helm-find-usages)
+    (evil-define-key 'normal omnisharp-mode-map (kbd "SPC o s") 'omnisharp-helm-find-symbol)
     (evil-define-key 'normal omnisharp-mode-map (kbd "SPC o I") 'omnisharp-find-implementations) ; g i is taken
     (evil-define-key 'normal omnisharp-mode-map (kbd "SPC o R") 'omnisharp-run-code-action-refactoring)
     (evil-define-key 'normal omnisharp-mode-map (kbd "SPC o f") 'omnisharp-fix-code-issue-at-point)

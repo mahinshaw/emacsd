@@ -5,11 +5,11 @@
 (set-face-font 'default "Source Code Pro 14")
 
 ;;change the command key to the meta key
-(setq mac-option-modifier 'super)
-(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'super
+      mac-command-modifier 'meta
 
-;; dont use native full screen
-(setq ns-use-native-fullscreen nil)
+      ;; dont use native full screen
+      ns-use-native-fullscreen nil)
 
 ;; Toggle me fullscreen timbers with cmd-Enter -- also F11
 (global-set-key (kbd "M-RET") 'toggle-frame-fullscreen)
