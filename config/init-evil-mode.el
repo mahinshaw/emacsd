@@ -55,6 +55,7 @@
     "ps" 'helm-projectile-switch-project
     "pb" 'helm-projectile-project-buffers
     "pa" 'helm-projectile-ag
+    "pg" 'helm-projectile-grep
     "pk" 'helm-projectile-kill-buffers
     "pb" 'helm-projectile-ibuffer
     "pe" 'helm-projectile-buffers-with-file))

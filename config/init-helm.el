@@ -44,4 +44,8 @@
             (define-key evil-normal-state-map (kbd "<SPC> h s") 'helm-semantic-or-imenu)
             (define-key evil-normal-state-map (kbd "<SPC> h t") 'helm-top)))
 
+(use-package helm-ag
+  :defer t
+  :ensure t)
+
 (provide 'init-helm)
