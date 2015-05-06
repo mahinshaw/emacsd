@@ -43,9 +43,9 @@
 
   (after 'evil
     (evil-define-key 'normal cider-mode-map
-      (kbd "g d") 'cider-jump-to-var
+      (kbd "g d") 'cider-find-var
       (kbd "g b") 'cider-jump-back
-      (kbd "C-]") 'cider-jump-to-var
+      (kbd "C-]") 'cider-find-var
       (kbd "K") 'cider-doc
       (kbd "g K") 'cider-javadoc
       ;;Evaluate the current toplevel form. PREFIX => print in buffer.
