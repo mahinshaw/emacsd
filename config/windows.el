@@ -37,7 +37,9 @@
 (when 'gnutls-available-p
   (setq gnutls-trustfiles "C:/Users/Mark/.ssh/cacert.pem"))
 
-(prefer-coding-system 'utf-8)
+;; (prefer-coding-system 'utf-8)
+;; force unix line endings.
+(prefer-coding-system 'utf-8-unix)
 
 ;;(eval-after-load 'projectile
 ;;       (setq projectile-indexing-method alien))

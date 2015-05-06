@@ -42,7 +42,7 @@
   (define-key cider-mode-map (kbd "C-c M-r") 'cider-eval-defun-at-point-in-repl)
 
   (after 'evil
-    (evil-define-key 'normal clojure-mode-map
+    (evil-define-key 'normal cider-mode-map
       (kbd "g d") 'cider-jump-to-var
       (kbd "g b") 'cider-jump-back
       (kbd "C-]") 'cider-jump-to-var
@@ -53,9 +53,10 @@
       (kbd "<C-return>") 'cider-eval-defun-at-point-in-repl
       (kbd "g X") 'cider-eval-buffer
       (kbd "g x") 'cider-eval-last-sexp)
-    (evil-define-key 'visual clojure-mode-map
+    (evil-define-key 'visual cider-mode-map
       (kbd "<return>") 'cider-eval-region)
     (evil-define-key 'normal cider-repl-mode-map (kbd "g K") 'cider-javadoc)
+    (evil-define-key 'insert cider-repl-mode-map (kbd "<C-return>") 'cider-repl-newline-and-indent)
     (evil-define-key 'normal cider-mode-map (kbd "g K") 'cider-javadoc))
 
   :diminish cider-mode)
