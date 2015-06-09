@@ -83,6 +83,7 @@
     init-clojure
     init-csharp
     init-fsharp
+    init-ocaml
     init-web
     init-js
     init-eclim
