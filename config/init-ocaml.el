@@ -6,8 +6,7 @@
   (setq auto-mode-alist
         (append '(("\\.ml[ily]?$" . tuareg-mode)
                   ("\\.topml$" . tuareg-mode))
-                auto-mode-alist))
-  )
+                auto-mode-alist)))
 
 (use-package utop
   :defer t
@@ -21,9 +20,16 @@
   (setq exec-path (append (parse-colon-path (getenv "PATH"))
                           (list exec-directory)))
 
-  (autoload 'setup-utop-ocaml-buffer "utop" "Toplevel for OCaml" t)
-  (add-hook 'tuareg-mode-hook 'utop-setup-ocaml-buffer)
-  )
+  (add-hook 'tuareg-mode-hook 'utop-minor-mode)
+
+  :config
+  (after 'evil
+    (evil-define-key 'normal merlin-mode-map
+      ;;Evaluate the current toplevel form. PREFIX => print in buffer.
+      (kbd "<return>") 'utop-eval-phrase
+      (kbd "g X") 'utop-eval-buffer)
+    (evil-define-key 'visual merlin-mode-map
+      (kbd "<return>") 'utop-eval-region)))
 
 (use-package merlin
   :defer t
@@ -32,8 +38,12 @@
   (after 'company
     (add-to-list 'company-backends 'merlin-company-backend))
   (add-hook 'tuareg-mode-hook 'merlin-mode)
-  (setq merlin-use-auto-complete-mode 'easy)
   (setq merlin-error-after-save nil)
-  )
+
+  :config
+  (after 'evil
+    (evil-define-key 'normal merlin-mode-map
+      (kbd "g d") 'merlin-locate
+      (kbd "C-]") 'merlin-locate)))
 
 (provide 'init-ocaml)
