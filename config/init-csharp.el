@@ -12,15 +12,17 @@
 (use-package omnisharp
   :ensure t
   :defer t
-  :bind (("C-c M-j" . omnisharp-start-omnisharp-server)
-         ("C-c C-q" . omnisharp-stop-server))
   :init
-  (setq omnisharp-server-executable-path "~/workspace/OmniSharpServer/OmniSharp/bin/Debug/OmniSharp.exe"
-   omnisharp-imenu-support t)
+  (if 'is-windows
+    (setq omnisharp-server-executable-path "C:/Users/Mark/workspace/OmniSharpServer/OmniSharp/bin/Debug/OmniSharp.exe")
+    (setq omnisharp-server-executable-path "~/workspace/OmniSharpServer/OmniSharp/bin/Debug/OmniSharp.exe"))
+  (setq omnisharp-imenu-support t)
+  (add-hook 'csharp-mode-hook 'omnisharp-mode)
   :config
+  (define-key omnisharp-mode-map (kbd "C-c M-j") 'omnisharp-start-omnisharp-server)
+  (define-key omnisharp-mode-map (kbd "C-c C-q") 'omnisharp-stop-server)
   (after 'company
     '(add-to-list 'company-backends 'company-omnisharp))
-  (add-hook 'csharp-mode-hook 'omnisharp-mode)
   ;; evil-mode mappings
   ;; Take from sample @github.com/omnisharp/omnisharp-emacs
   (after 'evil

@@ -13,8 +13,9 @@
   :ensure t
   :init
   ;; Setup environment variables using opam
-  (dolist (var (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
-    (setenv (car var) (cadr var)))
+  (when (executable-find "opam")
+    (dolist (var (car (read-from-string (shell-command-to-string "opam config env --sexp"))))
+      (setenv (car var) (cadr var))))
 
   ;; Update the emacs path
   (setq exec-path (append (parse-colon-path (getenv "PATH"))

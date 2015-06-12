@@ -23,6 +23,14 @@
     (declare (indent defun))
     `(eval-after-load ,feature
        '(progn ,@body))))
-    
+
+;; http://emacs-fu.blogspot.com/2008/12/running-some-external-program-only-if.html
+(defun util-shell-command-maybe (exe &optional paramstr)
+  "run executable EXE with PARAMSTR, or warn if EXE's not available; eg. "
+  " (util-shell-command-maybe \"ls\" \"-l -a\")"
+  (if (executable-find exe)
+    (shell-command (concat exe " " paramstr))
+    (message (concat "'" exe "' not found found; please install"))))
+
 (provide 'init-utils)
 ;;; init-utils ends here
