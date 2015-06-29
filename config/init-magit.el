@@ -4,6 +4,9 @@
   :defer t
   :ensure t
   :init
+  ;; Turn off warning regarding 'magit-auto-revert-mode in 1.4.0
+  (setq magit-last-seen-setup-instructions "1.4.0")
+
   ;; open the magit status buffer in the current buffer.
   (setq magit-status-buffer-switch-function 'switch-to-buffer)
   :config
